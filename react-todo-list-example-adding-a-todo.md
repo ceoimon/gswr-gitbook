@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[17] React 代办事项列表示例（添加一个代办事项）"
     data-video="http://o71w1wc99.bkt.clouddn.com/17.mp4"
-    data-subtitle="./sub/17.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/17.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/17.jpg?v0.0.1"
   ></div>
 </div>

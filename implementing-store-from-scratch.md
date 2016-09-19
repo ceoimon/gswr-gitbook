@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[07] 从头实现 store"
     data-video="http://o71w1wc99.bkt.clouddn.com/07.mp4"
-    data-subtitle="./sub/07.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/07.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/07.jpg?v0.0.1"
   ></div>
 </div>

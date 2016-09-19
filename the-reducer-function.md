@@ -1,3 +1,4 @@
+
 <div class="dplayer-container">
   <div
     id="dplayer"
@@ -5,7 +6,7 @@
     style="margin-bottom: 20px;"
     data-id="[04] reducer 函数"
     data-video="http://o71w1wc99.bkt.clouddn.com/04.mp4"
-    data-subtitle="./sub/04.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/04.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/04.jpg?v0.0.1"
   ></div>
 </div>

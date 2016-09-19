@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[16] 从头实现 combineReducer()"
     data-video="http://o71w1wc99.bkt.clouddn.com/16.mp4"
-    data-subtitle="./sub/16.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/16.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/16.jpg?v0.0.1"
   ></div>
 </div>

@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[08] React 的计数器示例"
     data-video="http://o71w1wc99.bkt.clouddn.com/08.mp4"
-    data-subtitle="./sub/08.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/08.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/08.jpg?v0.0.1"
   ></div>
 </div>

@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[05] 为计数器编写一个带有测试的 reducer 函数"
     data-video="http://o71w1wc99.bkt.clouddn.com/05.mp4"
-    data-subtitle="./sub/05.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/05.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/05.jpg?v0.0.1"
   ></div>
 </div>

@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[18] React 代办事项列表示例（切换代办事项的完成状态）"
     data-video="http://o71w1wc99.bkt.clouddn.com/18.mp4"
-    data-subtitle="./sub/18.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/18.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/18.jpg?v0.0.1"
   ></div>
 </div>

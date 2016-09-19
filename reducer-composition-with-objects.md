@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[14] “Reducer 组合”和数组"
     data-video="http://o71w1wc99.bkt.clouddn.com/14.mp4"
-    data-subtitle="./sub/14.vtt?v0.0.1"
+    data-subtitle="http://o71w1wc99.bkt.clouddn.com/14.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/14.jpg?v0.0.1"
   ></div>
 </div>
