@@ -1,0 +1,934 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <title>2. 用动作描述状态变化 · Redux 入门</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="author" content="sike.io">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="pure-and-impure-functions.html" />
+    
+    
+    <link rel="prev" href="the-single-immutable-state-tree.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://sike.io" target="_blank" class="custom-link">sike.io</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="the-single-immutable-state-tree.html">
+            
+                <a href="the-single-immutable-state-tree.html">
+            
+                    
+                    1. 不可变的单一状态树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="describing-state-changes-with-actions.html">
+            
+                <a href="describing-state-changes-with-actions.html">
+            
+                    
+                    2. 用动作描述状态变化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="pure-and-impure-functions.html">
+            
+                <a href="pure-and-impure-functions.html">
+            
+                    
+                    3. 纯函数和非纯函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="the-reducer-function.html">
+            
+                <a href="the-reducer-function.html">
+            
+                    
+                    4. reducer 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="writing-a-counter-reducer-with-tests.html">
+            
+                <a href="writing-a-counter-reducer-with-tests.html">
+            
+                    
+                    5. 为计数器编写一个带有测试的 reducer 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="store-methods-getstate-dispatch-and-subscribe.html">
+            
+                <a href="store-methods-getstate-dispatch-and-subscribe.html">
+            
+                    
+                    6. store 方法：getState，dispatch 和 subscribe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="implementing-store-from-scratch.html">
+            
+                <a href="implementing-store-from-scratch.html">
+            
+                    
+                    7. 从头实现 store
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="react-counter-example.html">
+            
+                <a href="react-counter-example.html">
+            
+                    
+                    8. React 计数器示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="avoiding-array-mutations-with-concat-slice-and-spread.html">
+            
+                <a href="avoiding-array-mutations-with-concat-slice-and-spread.html">
+            
+                    
+                    9. 使用 slice()，concat() 和 ...(展开运算符) 来避免修改数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="avoiding-object-mutations-with-object-assign-and-spread.html">
+            
+                <a href="avoiding-object-mutations-with-object-assign-and-spread.html">
+            
+                    
+                    10. 使用 Object.assign() 和  ...(展开运算符) 来避免修改对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="writing-a-todo-list-reducer-adding-a-todo.html">
+            
+                <a href="writing-a-todo-list-reducer-adding-a-todo.html">
+            
+                    
+                    11. 编写代办事项列表的 Reducer （添加一个代办事项）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="writing-a-todo-list-reducer-toggling-a-todo.html">
+            
+                <a href="writing-a-todo-list-reducer-toggling-a-todo.html">
+            
+                    
+                    12. 编写代办事项列表的 Reducer （切换代办事项的完成状态）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="reducer-composition-with-arrays.html">
+            
+                <a href="reducer-composition-with-arrays.html">
+            
+                    
+                    13. “Reducer 组合”和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="reducer-composition-with-objects.html">
+            
+                <a href="reducer-composition-with-objects.html">
+            
+                    
+                    14. “Reducer 组合”和对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="reducer-composition-with-combinereducers.html">
+            
+                <a href="reducer-composition-with-combinereducers.html">
+            
+                    
+                    15. 使用 combineReducers() 实现 Reducer组合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="implementing-combinereducers-from-scratch.html">
+            
+                <a href="implementing-combinereducers-from-scratch.html">
+            
+                    
+                    16. 从头实现 combineReducer() 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="react-todo-list-example-adding-a-todo.html">
+            
+                <a href="react-todo-list-example-adding-a-todo.html">
+            
+                    
+                    17. React 代办事项列表示例（添加一个代办事项）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="react-todo-list-example-toggling-a-todo.html">
+            
+                <a href="react-todo-list-example-toggling-a-todo.html">
+            
+                    
+                    18. React 代办事项列表示例（切换代办事项的完成状态）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="react-todo-list-example-filtering-todos.html">
+            
+                <a href="react-todo-list-example-filtering-todos.html">
+            
+                    
+                    19. React 代办事项列表示例（过滤代办事项）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" >
+            
+                <span>
+            
+                    
+                    20. 提取展示型组件（ TODO, TODOLIST ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" >
+            
+                <span>
+            
+                    
+                    21. 提取展示型组件（ AddTodo, Footer, FilterLink ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" >
+            
+                <span>
+            
+                    
+                    22. 提取容器组件 ( FILTERLINK ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" >
+            
+                <span>
+            
+                    
+                    23. 提取容器组件 ( VisibleTodoList, AddTodo ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" >
+            
+                <span>
+            
+                    
+                    24. 通过 props 显式地向下传递 store
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" >
+            
+                <span>
+            
+                    
+                    25. 通过 context 隐式地向下传递 store
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" >
+            
+                <span>
+            
+                    
+                    26. 使用 React Redux 的  传递 store
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" >
+            
+                <span>
+            
+                    
+                    27. 使用 React Redux 的 connect() 生成容器 （ VisibleTodoList ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" >
+            
+                <span>
+            
+                    
+                    28. 使用 React Redux 的 connect() 生成容器 （ AddTodo ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" >
+            
+                <span>
+            
+                    
+                    29. 使用 React Redux 的 connect() 生成容器 （ FooterLink ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" >
+            
+                <span>
+            
+                    
+                    30. 提取动作创造器
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >2. 用动作描述状态变化</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="dplayer-container">
+  <div id="dplayer" class="dplayer" style="margin-bottom: 20px;" data-id="[02] &#x7528;&#x52A8;&#x4F5C;&#x63CF;&#x8FF0;&#x72B6;&#x6001;&#x53D8;&#x5316;" data-video="http://o71w1wc99.bkt.clouddn.com/02.mp4" data-subtitle="./sub/02.vtt?v0.0.1" data-cover="http://o71w1wc99.bkt.clouddn.com/02.jpg?v0.0.1"></div>
+</div>
+
+
+
+<script defer src="./js/DPlayer.min.js"></script>
+<script defer src="./js/dplayer.js"></script>
+
+
+
+<h2 id="&#x6982;&#x5FF5;"><a name="&#x6982;&#x5FF5;" class="plugin-anchor" href="#&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6982;&#x5FF5;</h2><ul><li>Redux &#x7B2C;&#x4E8C;&#x539F;&#x5219;: &#x72B6;&#x6001;&#x6811;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61; (state tree) &#x53EA;&#x80FD;&#x53BB;&#x8BFB;&#xFF0C;&#x4F60;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x5B83;&#x3002;
+</li>
+<li>&#x4F46;&#x662F;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x52A8;&#x4F5C; (action) &#x53BB;&#x4F7F;&#x5E94;&#x7528;&#x7684;&#x72B6;&#x6001;&#x4EA7;&#x751F;&#x53D8;&#x5316;&#x3002;
+</li></ul>
+<p>&#x8FD9;&#x91CC;&#x597D;&#x50CF;&#x6709;&#x4E2A;&#x77DB;&#x76FE;&#xFF1A;&#x4E00;&#x65B9;&#x9762;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x53BB;&#x4FEE;&#x6539;&#x72B6;&#x6001;&#x6811;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x6211;&#x4EEC;&#x53C8;&#x8981;&#x901A;&#x8FC7;&#x89E6;&#x53D1;&#x52A8;&#x4F5C;&#x53BB;&#x4F7F;&#x72B6;&#x6001;&#x4EA7;&#x751F;&#x53D8;&#x5316;&#x3002;&#x6211;&#x4EEC;&#x7528;&#x4E2A;&#x6BD4;&#x55BB;&#x6765;&#x4E86;&#x89E3; &#x201C;&#x4FEE;&#x6539;&#x72B6;&#x6001;&#x672C;&#x8EAB;&quot; &#x548C; &#x201C;&#x6539;&#x53D8;&#x72B6;&#x6001;&#x201D; &#x8FD9;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#x7684;&#x5DEE;&#x522B;&#x3002;</p><p>&#x6BD4;&#x5982;&#x8BF4;&#x4F60;&#x60F3;&#x4E3A;&#x4F60;&#x7684;&#x5C4B;&#x5B50;&#x6362;&#x4E2A;&#x6C34;&#x9F99;&#x5934;&#xFF0C;&#x201C;&#x4FEE;&#x6539;&#x72B6;&#x6001;&#x672C;&#x8EAB;&#x201D; &#x5C31;&#x76F4;&#x63A5;&#x628A;&#x8FD9;&#x4E2A;&#x5C4B;&#x5B50;&#x7684;&#x6C34;&#x9F99;&#x5934;&#x6362;&#x6389;&#x4E86;&#x3002;&#x800C; &#x201C;&#x6539;&#x53D8;&#x72B6;&#x6001;&#x201D; &#x5C31;&#x597D;&#x50CF;&#x4F60;&#x91CD;&#x65B0;&#x76D6;&#x4E2A;&#x9664;&#x4E86;&#x6C34;&#x9F99;&#x5934;&#x548C;&#x4E4B;&#x524D;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;&#x5C4B;&#x5B50;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x95E8;&#x724C;&#x53F7;&#x7801;&#x6362;&#x5230;&#x65B0;&#x7684;&#x5C4B;&#x5B50;&#x3002;&#x540E;&#x9762;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x76F8;&#x5F53;&#x571F;&#x8C6A;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x62E5;&#x6709;&#x4E4B;&#x524D;&#x548C;&#x73B0;&#x5728;&#x7684;&#x5C4B;&#x5B50;&#x3002;</p><h3 id="action"><a name="action" class="plugin-anchor" href="#action"><i class="fa fa-link" aria-hidden="true"></i></a><code>action</code></h3><ul><li>&#x63CF;&#x8FF0;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x7684;&#x5BF9;&#x8C61;
+</li>
+<li>action &#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x8981;&#x6709; <code>type</code> &#x8FD9;&#x4E2A;&#x5C5E;&#x6027;
+<ul><li>&#x901A;&#x5E38; <code>type</code> &#x5C5E;&#x6027;&#x662F;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;
+</li></ul>
+</li></ul>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A; <code>action</code> &#x7684;&#x5F62;&#x5BB9;&#x4E00;&#x4E2A;&#x9012;&#x589E;&#x7684;&#x53D8;&#x5316;&#xFF1A;</p><pre><code class="lang-js"><span class="token punctuation">{</span>
+   type<span class="token punctuation">:</span> <span class="token string">&apos;INCREMENT&apos;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A; <code>action</code> &#x7684;&#x5F62;&#x5BB9;&#x4E00;&#x4E2A;&#x8BBE;&#x5B9A;&#x8BA1;&#x6570;&#x5668;&#x4E3A; 100 &#x7684;&#x53D8;&#x5316;&#xFF1A;</p><pre><code class="lang-js"><span class="token punctuation">{</span>
+   type<span class="token punctuation">:</span> <span class="token string">&apos;SET_COUNTER&apos;</span>
+   value<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="&#x4F8B;&#x5B50;-1---&#x8BA1;&#x6570;&#x5668;"><a name="&#x4F8B;&#x5B50;-1---&#x8BA1;&#x6570;&#x5668;" class="plugin-anchor" href="#&#x4F8B;&#x5B50;-1---&#x8BA1;&#x6570;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F8B;&#x5B50; 1 - &#x8BA1;&#x6570;&#x5668;</h2><p><img src="screenshots/Lesson-2_Counter-screenshot.png">
+&#x6F14;&#x793A;&#xFF1A;<a href="https://jsbin.com/tutoxim/edit?console,output" target="_blank">https://jsbin.com/tutoxim/edit?console,output</a></p><ul><li><p>&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x91CC;&#x53EA;&#x6709;&#x4E24;&#x79CD;&#x52A8;&#x4F5C;&#x3002;</p><ul><li><p>&#x6BCF;&#x4E2A;&#x52A8;&#x4F5C;&#x90FD;&#x6709; type &#x5C5E;&#x6027;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x52A8;&#x4F5C;&#x3002;</p><ul><li>&quot;INCREMENT&quot; &#x8BA1;&#x6570;&#x5668;&#x81EA;&#x589E;
+</li>
+<li>&quot;DECREMENT&quot; &#x8BA1;&#x6570;&#x5668;&#x81EA;&#x51CF;
+</li></ul>
+</li>
+<li><p>&#x4E0D;&#x9700;&#x8981;&#x5176;&#x4ED6;&#x989D;&#x5916;&#x4FE1;&#x606F;&#x5C31;&#x8DB3;&#x591F;&#x63CF;&#x8FF0;&#x52A8;&#x4F5C;&#x3002;</p></li></ul>
+</li>
+<li><p>&#x6240;&#x6709;&#x52A8;&#x4F5C;&#x90FD;&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x3002;</p></li></ul>
+<h2 id="&#x4F8B;&#x5B50;-2---&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x8BA1;&#x6570;&#x5668;"><a name="&#x4F8B;&#x5B50;-2---&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x8BA1;&#x6570;&#x5668;" class="plugin-anchor" href="#&#x4F8B;&#x5B50;-2---&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x8BA1;&#x6570;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F8B;&#x5B50; 2 - &#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x8BA1;&#x6570;&#x5668;</h2><p><img src="screenshots/Lesson-2_Multiple-counters-screenshot.png">
+&#x6F14;&#x793A;&#xFF1A;<a href="https://jsbin.com/topexiy/edit?console,output" target="_blank">https://jsbin.com/topexiy/edit?console,output</a></p><ul><li><p>&#x6DFB;&#x52A0;&#x4E86;&#x4E24;&#x79CD;&#x65B0;&#x7684;&#x52A8;&#x4F5C;</p><ul><li><p>&#x6BCF;&#x79CD;&#x52A8;&#x4F5C;&#x90FD;&#x6709; type &#x5C5E;&#x6027;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x52A8;&#x4F5C;&#x3002;</p><ul><li>&quot;ADD_COUNTER&quot; &#x6DFB;&#x52A0;&#x8BA1;&#x6570;&#x5668;
+</li>
+<li>&quot;REMOVE_COUNTER&quot; &#x79FB;&#x9664;&#x8BA1;&#x6570;&#x5668;
+</li></ul>
+</li>
+<li><p>&#x8FD9;&#x4E24;&#x79CD;&#x52A8;&#x4F5C;&#x65E0;&#x9700;&#x63D0;&#x4F9B;&#x9664;&#x4E86; <code>type</code> &#x5916;&#x7684;&#x5176;&#x4ED6;&#x4FE1;&#x606F;&#x3002;</p></li></ul>
+</li>
+<li><p>&#x4E3A;&quot;INCREMENT&quot;&#x548C;&quot;DECREMENT&quot;&#x52A8;&#x4F5C;&#x6DFB;&#x52A0;&#x989D;&#x5916;&#x7684;&#x4FE1;&#x606F;</p><ul><li>&#x53EA;&#x7528; <code>type</code> &#x5DF2;&#x7ECF;&#x65E0;&#x6CD5;&#x51C6;&#x786E;&#x63CF;&#x8FF0;&#x52A8;&#x4F5C;&#x3002;
+</li>
+<li>index &#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x54EA;&#x4E2A;&#x8BA1;&#x6570;&#x5668;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;
+</li>
+<li>&#x4E0D;&#x540C;&#x8BA1;&#x6570;&#x5668;&#x4E0D;&#x4F1A;&#x76F8;&#x4E92;&#x5F71;&#x54CD;&#x3002;
+</li></ul>
+</li></ul>
+<h2 id="&#x4F8B;&#x5B50;-3---todo-&#x5E94;&#x7528;"><a name="&#x4F8B;&#x5B50;-3---todo-&#x5E94;&#x7528;" class="plugin-anchor" href="#&#x4F8B;&#x5B50;-3---todo-&#x5E94;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F8B;&#x5B50; 3 - Todo &#x5E94;&#x7528;</h2><p><img src="screenshots/Lesson-2_Todo-App-screenshot.png">
+&#x6F14;&#x793A;&#xFF1A;<a href="https://jsbin.com/gitehe/edit?console,output" target="_blank">https://jsbin.com/gitehe/edit?console,output</a></p><ul><li><p>&#x6BCF;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x90FD;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x52A8;&#x4F5C;&#x3002;</p><ul><li>&#x6BCF;&#x79CD;&#x52A8;&#x4F5C;&#x90FD;&#x6709; type &#x5C5E;&#x6027;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x52A8;&#x4F5C;&#x3002;
+</li></ul>
+</li>
+<li><p>&#x6DFB;&#x52A0; <code>type</code> &#x4EE5;&#x5916;&#x7684;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x51C6;&#x786E;&#x63CF;&#x8FF0;&#x52A8;&#x4F5C;&#x3002;</p></li></ul>
+<h2 id="&#x603B;&#x7ED3;"><a name="&#x603B;&#x7ED3;" class="plugin-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x603B;&#x7ED3;</h2><pre><code class="lang-js"><span class="token comment" spellcheck="true">/**
+ * action: { type: string | any, ...otherInfos }
+ * &#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#x3002;
+ * &#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+ * &#x4E00;&#x5B9A;&#x8981;&#x6709; &quot;type&quot; &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x7C7B;&#x578B;&#x3002;
+ * type &#x901A;&#x5E38;&#x662F;&#xFF0C;&#x4F46;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+ */</span>
+
+<span class="token comment" spellcheck="true">// &#x793A;&#x4F8B;</span>
+<span class="token keyword">const</span> counterIncrement <span class="token operator">=</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;INCREMENT&apos;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> specifyCounterIncrement <span class="token operator">=</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;INCREMENT&apos;</span><span class="token punctuation">,</span>
+  index<span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span></code></pre>
+<ul><li>&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x3002;
+</li>
+<li>&#x4F7F;&#x7528;<strong>&#x52A8;&#x4F5C; (<code>action</code>)</strong> &#x63CF;&#x8FF0;<strong>&#x72B6;&#x6001; (<code>state</code>)</strong> &#x7684;&#x53D8;&#x5316;&#x3002;
+</li></ul>
+<h2 id="&#x601D;&#x8003;&#xFF1A;-&#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;"><a name="&#x601D;&#x8003;&#xFF1A;-&#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;" class="plugin-anchor" href="#&#x601D;&#x8003;&#xFF1A;-&#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x601D;&#x8003;&#xFF1A; &#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;</h2><ul><li>&#x4E3A;&#x4EC0;&#x4E48; <code>action</code> &#x91CC;&#x7684; <code>type</code> &#x5C5E;&#x6027;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#xFF1F;
+</li></ul>
+<h3 id="&#x4E0A;&#x8282;&#x89E3;&#x7B54;"><a name="&#x4E0A;&#x8282;&#x89E3;&#x7B54;" class="plugin-anchor" href="#&#x4E0A;&#x8282;&#x89E3;&#x7B54;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0A;&#x8282;&#x89E3;&#x7B54;:</h3><ul><li>&#x4E3A;&#x4EC0;&#x4E48;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x58F0;&#x660E; state &#x7528;&#x5230;&#x7684;&#x662F; const &#x800C;&#x4E0D;&#x662F; let?
+<ul><li>state &#x662F;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x53BB;&#x4FEE;&#x6539;&#x3002;
+</li></ul>
+</li></ul>
+<h2 id="&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;"><a name="&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;" class="plugin-anchor" href="#&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;</h2><ul><li><a href="http://cn.redux.js.org/docs/introduction/ThreePrinciples.html" target="_blank">Redux &#x4E09;&#x5927;&#x539F;&#x5219;</a>
+</li>
+<li><a href="http://baike.baidu.com/link?url=Fgbv8gIdOK0atD6b4aDiB9EbgKxKcVzQroLuzhj9WXoW2m8T5rQdAkgMZZkzVOpd0HeTvl4dMYv7pz8YMQ8VgDxYi5Gy4iixTjmTC14I47sm7c0u4wJK6EnRQGKVBZAH" target="_blank">&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#xFF08;&#x767E;&#x5EA6;&#x767E;&#x79D1;&#xFF09;</a>
+</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%B8%8D%E5%8F%AF%E8%AE%8A%E7%89%A9%E4%BB%B6" target="_blank">&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#xFF08;&#x7EF4;&#x57FA;&#x767E;&#x79D1;&#xFF09;</a>
+</li></ul>
+<style>.markdown-section
+{
+    overflow: visible;
+}
+.promo {
+    opacity: 0;
+  z-index: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  pointer-events: none;
+    transition: opacity .3s;
+  -webkit-box-shadow: rgba(0,0,0,0.118) 0px 1px 6px, rgba(0,0,0,0.118) 0px 1px 4px;
+  box-shadow: rgba(0,0,0,0.118) 0px 1px 6px, rgba(0,0,0,0.118) 0px 1px 4px;
+  background: #fff;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 280px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+@media screen and (min-height: 870px) and (min-width: 1320px) {
+  .promo {
+    width: 350px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 656px) {
+  .promo {
+    width: 175px;
+    height: 250px;
+  }
+}
+.promo .qrcode {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  font-size: initial;
+}
+.promo .qrcode img {
+  width: 240px;
+  height: 240px;
+}
+@media screen and (max-width: 656px) {
+  .promo .qrcode img {
+    width: 100%;
+    height: auto;
+  }
+}
+.promo .qrcode span {
+  font-size: 1rem;
+}
+@media screen and (max-width: 656px) {
+  .promo .qrcode span {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
+.promo p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+.promo p .pink {
+  color: #ff8298;
+}
+.promo p .keywords {
+  font-size: 14px;
+}
+@media screen and (max-width: 656px) {
+  .promo p .keywords {
+    font-size: 0.6rem;
+  }
+}
+@media screen and (max-width: 656px) {
+  .promo p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+}
+.promo .close {
+  outline: none;
+  cursor: pointer;
+  pointer-events: initial;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-appearance: none;
+}
+@media screen and (max-width: 656px) {
+  .promo .close {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    right: -4px;
+    top: -4px;
+  }
+}
+.promo .close:hover::before,
+.promo .close:hover::after {
+  background: #f44336;
+}
+.promo .close::before,
+.promo .close::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #808080;
+}
+.promo .close::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.promo .close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.promo .close.hairline::before,
+.promo .close.hairline::after {
+  height: 1px;
+}
+.dplayer:-webkit-full-screen .promo {
+  width: 21vw;
+  height: 30vw;
+}
+.dplayer:-webkit-full-screen .promo .qrcode img {
+  width: 15vw;
+  height: 15vw;
+}
+.dplayer:-webkit-full-screen .promo p {
+  font-size: 1.6rem;
+}
+.dplayer:-webkit-full-screen .promo p .keywords {
+  font-size: 1rem;
+}
+.promo.show {
+    opacity: 1;
+    transition: opacity .5s .5s;
+}
+.promo.hide {
+  opacity: 0;
+  transition: opacity 0s;
+}
+.dplayer-setting-box {
+  box-sizing: content-box;
+}</style>
+
+
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="the-single-immutable-state-tree.html" class="navigation navigation-prev " aria-label="Previous page: 1. 不可变的单一状态树">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="pure-and-impure-functions.html" class="navigation navigation-next " aria-label="Next page: 3. 纯函数和非纯函数">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2. 用动作描述状态变化","level":"1.3","depth":1,"next":{"title":"3. 纯函数和非纯函数","level":"1.4","depth":1,"path":"pure-and-impure-functions.md","ref":"pure-and-impure-functions.md","articles":[]},"previous":{"title":"1. 不可变的单一状态树","level":"1.2","depth":1,"path":"the-single-immutable-state-tree.md","ref":"the-single-immutable-state-tree.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","anchors","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"sike.io","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Redux 入门","language":"zh","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"sike.io":"http://sike.io"}},"gitbook":"*","description":"Redux 入门教程，从 Redux 的实现思想出发学习 Redux."},"file":{"path":"describing-state-changes-with-actions.md","mtime":"2016-09-19T06:33:04.264Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-19T08:31:31.945Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

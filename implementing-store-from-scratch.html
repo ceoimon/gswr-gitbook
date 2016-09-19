@@ -1,0 +1,973 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <title>7. 从头实现 store · Redux 入门</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="author" content="sike.io">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="react-counter-example.html" />
+    
+    
+    <link rel="prev" href="store-methods-getstate-dispatch-and-subscribe.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://sike.io" target="_blank" class="custom-link">sike.io</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="the-single-immutable-state-tree.html">
+            
+                <a href="the-single-immutable-state-tree.html">
+            
+                    
+                    1. 不可变的单一状态树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="describing-state-changes-with-actions.html">
+            
+                <a href="describing-state-changes-with-actions.html">
+            
+                    
+                    2. 用动作描述状态变化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="pure-and-impure-functions.html">
+            
+                <a href="pure-and-impure-functions.html">
+            
+                    
+                    3. 纯函数和非纯函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="the-reducer-function.html">
+            
+                <a href="the-reducer-function.html">
+            
+                    
+                    4. reducer 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="writing-a-counter-reducer-with-tests.html">
+            
+                <a href="writing-a-counter-reducer-with-tests.html">
+            
+                    
+                    5. 为计数器编写一个带有测试的 reducer 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="store-methods-getstate-dispatch-and-subscribe.html">
+            
+                <a href="store-methods-getstate-dispatch-and-subscribe.html">
+            
+                    
+                    6. store 方法：getState，dispatch 和 subscribe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="implementing-store-from-scratch.html">
+            
+                <a href="implementing-store-from-scratch.html">
+            
+                    
+                    7. 从头实现 store
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="react-counter-example.html">
+            
+                <a href="react-counter-example.html">
+            
+                    
+                    8. React 计数器示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="avoiding-array-mutations-with-concat-slice-and-spread.html">
+            
+                <a href="avoiding-array-mutations-with-concat-slice-and-spread.html">
+            
+                    
+                    9. 使用 slice()，concat() 和 ...(展开运算符) 来避免修改数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="avoiding-object-mutations-with-object-assign-and-spread.html">
+            
+                <a href="avoiding-object-mutations-with-object-assign-and-spread.html">
+            
+                    
+                    10. 使用 Object.assign() 和  ...(展开运算符) 来避免修改对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="writing-a-todo-list-reducer-adding-a-todo.html">
+            
+                <a href="writing-a-todo-list-reducer-adding-a-todo.html">
+            
+                    
+                    11. 编写代办事项列表的 Reducer （添加一个代办事项）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="writing-a-todo-list-reducer-toggling-a-todo.html">
+            
+                <a href="writing-a-todo-list-reducer-toggling-a-todo.html">
+            
+                    
+                    12. 编写代办事项列表的 Reducer （切换代办事项的完成状态）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="reducer-composition-with-arrays.html">
+            
+                <a href="reducer-composition-with-arrays.html">
+            
+                    
+                    13. “Reducer 组合”和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="reducer-composition-with-objects.html">
+            
+                <a href="reducer-composition-with-objects.html">
+            
+                    
+                    14. “Reducer 组合”和对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="reducer-composition-with-combinereducers.html">
+            
+                <a href="reducer-composition-with-combinereducers.html">
+            
+                    
+                    15. 使用 combineReducers() 实现 Reducer组合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="implementing-combinereducers-from-scratch.html">
+            
+                <a href="implementing-combinereducers-from-scratch.html">
+            
+                    
+                    16. 从头实现 combineReducer() 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="react-todo-list-example-adding-a-todo.html">
+            
+                <a href="react-todo-list-example-adding-a-todo.html">
+            
+                    
+                    17. React 代办事项列表示例（添加一个代办事项）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="react-todo-list-example-toggling-a-todo.html">
+            
+                <a href="react-todo-list-example-toggling-a-todo.html">
+            
+                    
+                    18. React 代办事项列表示例（切换代办事项的完成状态）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="react-todo-list-example-filtering-todos.html">
+            
+                <a href="react-todo-list-example-filtering-todos.html">
+            
+                    
+                    19. React 代办事项列表示例（过滤代办事项）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" >
+            
+                <span>
+            
+                    
+                    20. 提取展示型组件（ TODO, TODOLIST ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" >
+            
+                <span>
+            
+                    
+                    21. 提取展示型组件（ AddTodo, Footer, FilterLink ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" >
+            
+                <span>
+            
+                    
+                    22. 提取容器组件 ( FILTERLINK ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" >
+            
+                <span>
+            
+                    
+                    23. 提取容器组件 ( VisibleTodoList, AddTodo ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" >
+            
+                <span>
+            
+                    
+                    24. 通过 props 显式地向下传递 store
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" >
+            
+                <span>
+            
+                    
+                    25. 通过 context 隐式地向下传递 store
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" >
+            
+                <span>
+            
+                    
+                    26. 使用 React Redux 的  传递 store
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" >
+            
+                <span>
+            
+                    
+                    27. 使用 React Redux 的 connect() 生成容器 （ VisibleTodoList ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" >
+            
+                <span>
+            
+                    
+                    28. 使用 React Redux 的 connect() 生成容器 （ AddTodo ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" >
+            
+                <span>
+            
+                    
+                    29. 使用 React Redux 的 connect() 生成容器 （ FooterLink ）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" >
+            
+                <span>
+            
+                    
+                    30. 提取动作创造器
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >7. 从头实现 store</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="dplayer-container">
+  <div id="dplayer" class="dplayer" style="margin-bottom: 20px;" data-id="[07] &#x4ECE;&#x5934;&#x5B9E;&#x73B0; store" data-video="http://o71w1wc99.bkt.clouddn.com/07.mp4" data-subtitle="./sub/07.vtt?v0.0.1" data-cover="http://o71w1wc99.bkt.clouddn.com/07.jpg?v0.0.1"></div>
+</div>
+
+
+
+<script defer src="./js/DPlayer.min.js"></script>
+<script defer src="./js/dplayer.js"></script>
+
+
+
+<p>&#x672C;&#x8282;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x73AF;&#x5883;&#xFF1A;<a href="https://jsbin.com/nepobom/edit?js,console,output" target="_blank">https://jsbin.com/nepobom/edit?js,console,output</a></p><p>&#x5728;&#x524D;&#x9762;&#x4E00;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528; Redux &#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x5E94;&#x7528;&#x3002;</p><p>&#x6211;&#x4EEC;&#x4F7F;&#x7528; <code>store</code> &#x53BB;&#x7BA1;&#x7406;&#x72B6;&#x6001;&#xFF1A;</p><ul><li><code>getState()</code>
+</li>
+<li><code>dispatch(action)</code>
+</li>
+<li><code>subscribe(Function)</code>
+</li></ul>
+<p>&#x901A;&#x8FC7; <code>store</code> &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x72B6;&#x6001;&#xFF0C;&#x5206;&#x53D1;&#x52A8;&#x4F5C;&#xFF0C;&#x7ED1;&#x5B9A;&#x901A;&#x77E5;&#x3002;</p><p>&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x795E;&#x5947;&#x7684; <code>store</code> &#x91CC;&#x9762;&#x5230;&#x5E95;&#x662F;&#x600E;&#x6837;&#x7684;&#x5462;&#xFF1F;</p><h2 id="&#x63ED;&#x5F00;&#x5F15;&#x64CE;&#x76D6;"><a name="&#x63ED;&#x5F00;&#x5F15;&#x64CE;&#x76D6;" class="plugin-anchor" href="#&#x63ED;&#x5F00;&#x5F15;&#x64CE;&#x76D6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63ED;&#x5F00;&#x5F15;&#x64CE;&#x76D6;</h2><p>&#x8BA9;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x4E00;&#x6B21; <code>createStore</code>.</p><p>&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#xFF0C;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;&#x7684; store &#x5BF9;&#x8C61;&#x5B58;&#x5728;&#x5982;&#x4E0B;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p><ul><li><code>getState</code>
+</li>
+<li><code>dispatch</code>
+</li>
+<li><code>subscribe</code>
+</li></ul>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x731C;&#x6D4B;&#x5927;&#x6982;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p><pre><code class="lang-js"><span class="token keyword">const</span> createStore <span class="token operator">=</span> <span class="token punctuation">(</span>reducer<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x6700;&#x65B0;&#x7684;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x3002;</span>
+
+  <span class="token keyword">const</span> getState <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x6700;&#x65B0;&#x72B6;&#x6001;&#x3002;</span>
+
+  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...&#x628A; action &#x4EA4;&#x7ED9; reducer &#x5904;&#x7406;&#x3002;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> subscribe <span class="token operator">=</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> getState<span class="token punctuation">,</span> dispatch<span class="token punctuation">,</span> subscribe <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A; store &#x5BF9;&#x8C61;.</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="&#x5B9E;&#x73B0;-subscribe"><a name="&#x5B9E;&#x73B0;-subscribe" class="plugin-anchor" href="#&#x5B9E;&#x73B0;-subscribe"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0; <code>subscribe()</code></h3><ul><li><code>subscribe</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7ED1;&#x5B9A;&#x5230; <code>store</code> &#x4E0A;&#xFF0C;&#x5F53;&#x72B6;&#x6001;&#x6539;&#x53D8;&#xFF0C;&#x5C31;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;
+</li>
+<li>&#x6211;&#x4EEC;&#x79F0;&#x7ED1;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x4E3A;&#x8BA2;&#x9605;&#x8005; (listener)
+</li>
+<li>&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x8BA2;&#x9605;&#x8005;&#x540C;&#x65F6;&#x8BA2;&#x9605; <code>store</code>
+</li></ul>
+<p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x901A;&#x77E5;&#x591A;&#x4E2A;&#x8BA2;&#x9605;&#x8005;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x8BA2;&#x9605;&#x8005;&#x961F;&#x5217;&#x3002;</p><pre><code class="lang-js"><span class="token keyword">const</span> createStore <span class="token operator">=</span> <span class="token punctuation">(</span>reducer<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x6700;&#x65B0;&#x7684;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x3002;</span>
+  <span class="token keyword">let</span> listeners <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x4FDD;&#x5B58;&#x8BA2;&#x9605;&#x8005;&#x3002;</span>
+
+  <span class="token keyword">const</span> getState <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x6700;&#x65B0;&#x72B6;&#x6001;&#x3002;</span>
+
+  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...&#x628A; action &#x4EA4;&#x7ED9; reducer &#x5904;&#x7406;&#x3002;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> subscribe <span class="token operator">=</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    listeners<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x5C06;&#x8BA2;&#x9605;&#x8005;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#x3002;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> getState<span class="token punctuation">,</span> dispatch<span class="token punctuation">,</span> subscribe <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A; store &#x5BF9;&#x8C61;.</span>
+<span class="token punctuation">}</span></code></pre>
+<p>subscribe &#x65B9;&#x6CD5;&#x5E76;&#x4E0D;&#x7528;&#x4E8E;&#x901A;&#x77E5;&#xFF08;&#x8C03;&#x7528;&#xFF09;&#x8BA2;&#x9605;&#x8005;&#x4EEC;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x751A;&#x81F3;&#x4E0D;&#x77E5;&#x9053;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#x3002;</p><p>&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#x53D1;&#x751F;&#x5728;&#x5206;&#x53D1;&#x52A8;&#x4F5C;&#x91CC;&#x9762;&#x3002;</p><h3 id="&#x5B9E;&#x73B0;-dispatch"><a name="&#x5B9E;&#x73B0;-dispatch" class="plugin-anchor" href="#&#x5B9E;&#x73B0;-dispatch"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0; <code>dispatch()</code></h3><p>&#x5E94;&#x7528;&#x72B6;&#x6001;&#x7684;&#x6539;&#x53D8;&#x6D41;&#x7A0B;&#xFF1A;
+1. <code>store</code> &#x5C06;&#x52A8;&#x4F5C;&#x5206;&#x53D1;&#x7ED9; <code>reducer</code>
+2. <code>reducer</code> &#x8BA1;&#x7B97;&#x65B0;&#x7684;&#x72B6;&#x6001;
+3. <code>store</code> &#x5C06;&#x65B0;&#x7684;&#x72B6;&#x6001;&#x4FDD;&#x5B58;&#x8D77;&#x6765;
+4. <code>store</code> &#x901A;&#x77E5;&#x8BA2;&#x9605;&#x8005;&#x4EEC;</p><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x52A8;&#x4F5C;&#x5408;&#x8D77;&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p><pre><code class="lang-js"><span class="token keyword">const</span> createStore <span class="token operator">=</span> <span class="token punctuation">(</span>reducer<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x6700;&#x65B0;&#x7684;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x3002;</span>
+  <span class="token keyword">let</span> listeners <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x4FDD;&#x5B58;&#x8BA2;&#x9605;&#x8005;&#x3002;</span>
+
+  <span class="token keyword">const</span> getState <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x6700;&#x65B0;&#x72B6;&#x6001;&#x3002;</span>
+
+  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    state <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x8BA1;&#x7B97;&#x65B0;&#x72B6;&#x6001;&#x5E76;&#x4FDD;&#x5B58;&#x3002;</span>
+    listeners<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>listener <span class="token operator">=</span> <span class="token function">listener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x901A;&#x77E5;&#xFF08;&#x8C03;&#x7528;&#xFF09;&#x8BA2;&#x9605;&#x8005;&#x3002;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> subscribe <span class="token operator">=</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    listeners<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x5C06;&#x8BA2;&#x9605;&#x8005;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#x3002;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> getState<span class="token punctuation">,</span> dispatch<span class="token punctuation">,</span> subscribe <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A; store &#x5BF9;&#x8C61;.</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#x5230;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F3C;&#x4E4E;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#x6574;&#x4E2A; <code>store</code> &#x7684;&#x6784;&#x9020;&#x8FC7;&#x7A0B;&#xFF0C;&#x4F46;&#x662F;&#x7B49;&#x7B49;&#xFF0C;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x7ED9;&#x8BA2;&#x9605;&#x8005;&#x9000;&#x8BA2;&#x7684;&#x673A;&#x4F1A;...&#x8FD9;&#x4E0D;&#x662F;&#x9738;&#x738B;&#x6761;&#x7EA6;&#x5417;&#xFF1F;</p><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x6DFB;&#x52A0;&#x9000;&#x8BA2;&#x529F;&#x80FD;&#xFF1A;</p><pre><code class="lang-js"><span class="token keyword">const</span> subscribe <span class="token operator">=</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  listeners<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x5C06;&#x8BA2;&#x9605;&#x8005;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#x3002;</span>
+
+  <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x9000;&#x8BA2;&#x529F;&#x80FD;&#x7684;&#x51FD;&#x6570;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    listeners <span class="token operator">=</span> listeners<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>l <span class="token operator">=</span><span class="token operator">&gt;</span> l <span class="token operator">!=</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x8C03;&#x7528;&#x5B83;&#xFF1A;</p><pre><code class="lang-js"><span class="token keyword">const</span> unsubscribe <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>doSomething<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x6DFB;&#x52A0;&#x8BA2;&#x9605;</span>
+<span class="token function">unsubscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x9000;&#x8BA2;</span></code></pre>
+<p>&#x6700;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x8981;&#x8BB0;&#x5F97;&#x521D;&#x59CB;&#x5316;&#x5E94;&#x7528;&#x7684;&#x72B6;&#x6001;:</p><pre><code class="lang-js"><span class="token keyword">const</span> createStore <span class="token operator">=</span> <span class="token punctuation">(</span>reducer<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x6700;&#x65B0;&#x7684;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x3002;</span>
+  <span class="token keyword">let</span> listeners <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x4FDD;&#x5B58;&#x8BA2;&#x9605;&#x8005;&#x3002;</span>
+
+  <span class="token keyword">const</span> getState <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> state<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x6700;&#x65B0;&#x72B6;&#x6001;&#x3002;</span>
+
+  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    state <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x8BA1;&#x7B97;&#x65B0;&#x72B6;&#x6001;&#x5E76;&#x4FDD;&#x5B58;&#x3002;</span>
+    listeners<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>listener <span class="token operator">=</span> <span class="token function">listener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x901A;&#x77E5;&#xFF08;&#x8C03;&#x7528;&#xFF09;&#x8BA2;&#x9605;&#x8005;&#x3002;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> subscribe <span class="token operator">=</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    listeners<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x5C06;&#x8BA2;&#x9605;&#x8005;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#x3002;</span>
+
+    <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x9000;&#x8BA2;&#x529F;&#x80FD;&#x7684;&#x51FD;&#x6570;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      listeners <span class="token operator">=</span> listeners<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>l <span class="token operator">=</span><span class="token operator">&gt;</span> l <span class="token operator">!=</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x521D;&#x59CB;&#x5316;&#x5E94;&#x7528;&#x72B6;&#x6001;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> getState<span class="token punctuation">,</span> dispatch<span class="token punctuation">,</span> subscribe <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A; store &#x5BF9;&#x8C61;.</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A; createStore &#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x4E86;&#x89E3;&#x4E86; store &#x7684;&#x5185;&#x90E8;&#x539F;&#x7406;&#x4E86;&#x3002;</p><p>&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x5C31;&#x8DDF;&#x6700;&#x521D;&#x7684;&#x5B98;&#x65B9;&#x5B9E;&#x73B0;&#x5DEE;&#x4E0D;&#x4E86;&#x591A;&#x5C11;&#xFF5E;</p><h2 id="&#x603B;&#x7ED3;"><a name="&#x603B;&#x7ED3;" class="plugin-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x603B;&#x7ED3;</h2><ul><li><code>store</code> &#x5185;&#x90E8;&#x5E76;&#x4E0D;&#x590D;&#x6742;
+</li></ul>
+<h2 id="&#x601D;&#x8003;&#xFF1A;-&#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;"><a name="&#x601D;&#x8003;&#xFF1A;-&#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;" class="plugin-anchor" href="#&#x601D;&#x8003;&#xFF1A;-&#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x601D;&#x8003;&#xFF1A; &#xFF08;&#x7B54;&#x6848;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x516C;&#x5E03;&#xFF09;</h2><ul><li>&#x5982;&#x679C;&#x4E0D;&#x5728; <code>subscribe</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x9000;&#x8BA2;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x9EBB;&#x70E6;&#xFF1F;
+</li></ul>
+<h3 id="&#x4E0A;&#x8282;&#x89E3;&#x7B54;"><a name="&#x4E0A;&#x8282;&#x89E3;&#x7B54;" class="plugin-anchor" href="#&#x4E0A;&#x8282;&#x89E3;&#x7B54;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0A;&#x8282;&#x89E3;&#x7B54;:</h3><ul><li>&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981; <code>store</code> &#x53BB;&#x5206;&#x53D1;&#x52A8;&#x4F5C;&#x7ED9; <code>reducer</code> &#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528; <code>reducer</code>?
+<ul><li>&#x786E;&#x4FDD;&#x6BCF;&#x6B21;&#x8C03;&#x7528; reducer &#x4F20;&#x8FDB;&#x5165;&#x7684;&#x72B6;&#x6001;&#x90FD;&#x662F;&#x6700;&#x65B0;&#x7684;&#x3002;
+</li>
+<li>&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x52A8;&#x4F5C;&#x4E4B;&#x95F4;&#x7684;&#x7ADE;&#x4E89;&#x60C5;&#x51B5;&#x3002;
+</li>
+<li>&#x66F4;&#x6613;&#x4E8E;&#x6D4B;&#x8BD5;&#x3002;
+</li></ul>
+</li></ul>
+<h2 id="&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;"><a name="&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;" class="plugin-anchor" href="#&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6269;&#x5C55;&#x9605;&#x8BFB;&#xFF1A;</h2><ul><li><a href="https://github.com/reactjs/redux/blob/e426039152272393f80d7f3b9e63814890a4119d/src/Store.js" target="_blank">1.0 &#x7248;&#x672C; Redux &#x7684;createStore</a>
+</li></ul>
+<style>.markdown-section
+{
+    overflow: visible;
+}
+.promo {
+    opacity: 0;
+  z-index: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  pointer-events: none;
+    transition: opacity .3s;
+  -webkit-box-shadow: rgba(0,0,0,0.118) 0px 1px 6px, rgba(0,0,0,0.118) 0px 1px 4px;
+  box-shadow: rgba(0,0,0,0.118) 0px 1px 6px, rgba(0,0,0,0.118) 0px 1px 4px;
+  background: #fff;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 280px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+@media screen and (min-height: 870px) and (min-width: 1320px) {
+  .promo {
+    width: 350px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 656px) {
+  .promo {
+    width: 175px;
+    height: 250px;
+  }
+}
+.promo .qrcode {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  font-size: initial;
+}
+.promo .qrcode img {
+  width: 240px;
+  height: 240px;
+}
+@media screen and (max-width: 656px) {
+  .promo .qrcode img {
+    width: 100%;
+    height: auto;
+  }
+}
+.promo .qrcode span {
+  font-size: 1rem;
+}
+@media screen and (max-width: 656px) {
+  .promo .qrcode span {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
+.promo p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+.promo p .pink {
+  color: #ff8298;
+}
+.promo p .keywords {
+  font-size: 14px;
+}
+@media screen and (max-width: 656px) {
+  .promo p .keywords {
+    font-size: 0.6rem;
+  }
+}
+@media screen and (max-width: 656px) {
+  .promo p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+}
+.promo .close {
+  outline: none;
+  cursor: pointer;
+  pointer-events: initial;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-appearance: none;
+}
+@media screen and (max-width: 656px) {
+  .promo .close {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    right: -4px;
+    top: -4px;
+  }
+}
+.promo .close:hover::before,
+.promo .close:hover::after {
+  background: #f44336;
+}
+.promo .close::before,
+.promo .close::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #808080;
+}
+.promo .close::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.promo .close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.promo .close.hairline::before,
+.promo .close.hairline::after {
+  height: 1px;
+}
+.dplayer:-webkit-full-screen .promo {
+  width: 21vw;
+  height: 30vw;
+}
+.dplayer:-webkit-full-screen .promo .qrcode img {
+  width: 15vw;
+  height: 15vw;
+}
+.dplayer:-webkit-full-screen .promo p {
+  font-size: 1.6rem;
+}
+.dplayer:-webkit-full-screen .promo p .keywords {
+  font-size: 1rem;
+}
+.promo.show {
+    opacity: 1;
+    transition: opacity .5s .5s;
+}
+.promo.hide {
+  opacity: 0;
+  transition: opacity 0s;
+}
+.dplayer-setting-box {
+  box-sizing: content-box;
+}</style>
+
+
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="store-methods-getstate-dispatch-and-subscribe.html" class="navigation navigation-prev " aria-label="Previous page: 6. store 方法：getState，dispatch 和 subscribe">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="react-counter-example.html" class="navigation navigation-next " aria-label="Next page: 8. React 计数器示例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7. 从头实现 store","level":"1.8","depth":1,"next":{"title":"8. React 计数器示例","level":"1.9","depth":1,"path":"react-counter-example.md","ref":"react-counter-example.md","articles":[]},"previous":{"title":"6. store 方法：getState，dispatch 和 subscribe","level":"1.7","depth":1,"path":"store-methods-getstate-dispatch-and-subscribe.md","ref":"store-methods-getstate-dispatch-and-subscribe.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","anchors","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"sike.io","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Redux 入门","language":"zh","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"sike.io":"http://sike.io"}},"gitbook":"*","description":"Redux 入门教程，从 Redux 的实现思想出发学习 Redux."},"file":{"path":"implementing-store-from-scratch.md","mtime":"2016-09-19T06:33:31.699Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-19T08:31:31.945Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
