@@ -1,0 +1,9 @@
+node_modules
+
+.DS_Store
+
+_book
+
+*.epub
+*.mobi
+*.pdf
