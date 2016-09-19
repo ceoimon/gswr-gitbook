@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[19] React 代办事项列表示例（过滤代办事项）"
     data-video="http://o71w1wc99.bkt.clouddn.com/19.mp4"
-    data-subtitle="http://o71w1wc99.bkt.clouddn.com/19.vtt?v0.0.1"
+    data-subtitle="./sub/19.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/19.jpg?v0.0.1"
   ></div>
 </div>

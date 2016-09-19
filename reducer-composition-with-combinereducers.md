@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[15] 使用 combineReducers() 实现 Reducer组合"
     data-video="http://o71w1wc99.bkt.clouddn.com/15.mp4"
-    data-subtitle="http://o71w1wc99.bkt.clouddn.com/15.vtt?v0.0.1"
+    data-subtitle="./sub/15.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/15.jpg?v0.0.1"
   ></div>
 </div>

@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[11] 编写代办事项列表的 Reducer （添加一个代办事项）"
     data-video="http://o71w1wc99.bkt.clouddn.com/11.mp4"
-    data-subtitle="http://o71w1wc99.bkt.clouddn.com/11.vtt?v0.0.1"
+    data-subtitle="./sub/11.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/11.jpg?v0.0.1"
   ></div>
 </div>

@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[06] store 方法：getState，dispatch 和 subscribe"
     data-video="http://o71w1wc99.bkt.clouddn.com/06.mp4"
-    data-subtitle="http://o71w1wc99.bkt.clouddn.com/06.vtt?v0.0.1"
+    data-subtitle="./sub/06.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/06.jpg?v0.0.1"
   ></div>
 </div>

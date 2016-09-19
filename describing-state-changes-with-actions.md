@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[02] 用动作描述状态变化"
     data-video="http://o71w1wc99.bkt.clouddn.com/02.mp4"
-    data-subtitle="http://o71w1wc99.bkt.clouddn.com/02.vtt?v0.0.1"
+    data-subtitle="./sub/02.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/02.jpg?v0.0.1"
   ></div>
 </div>

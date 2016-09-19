@@ -5,7 +5,7 @@
     style="margin-bottom: 20px;"
     data-id="[03] 纯函数和非纯函数"
     data-video="http://o71w1wc99.bkt.clouddn.com/03.mp4"
-    data-subtitle="http://o71w1wc99.bkt.clouddn.com/03.vtt?v0.0.1"
+    data-subtitle="./sub/03.vtt?v0.0.1"
     data-cover="http://o71w1wc99.bkt.clouddn.com/03.jpg?v0.0.1"
   ></div>
 </div>

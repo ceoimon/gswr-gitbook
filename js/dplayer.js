@@ -25,7 +25,7 @@
   );
 
 	var promo = document.createElement("div");
-	promo.innerHTML = '<div class="qrcode"><img src="/images/xiaosimei_qrcode.png"><span>微信：abby_sike</span></div><p>小思妹邀你入群聊技术</p><p><span class="keywords">(ES6, React, Redux)</span></p><button class="close hairline"></button>'
+	promo.innerHTML = '<div class="qrcode"><img src="./images/xiaosimei_qrcode.png"><span>微信：abby_sike</span></div><p>小思妹邀你入群聊技术</p><p><span class="keywords">(ES6, React, Redux)</span></p><button class="close hairline"></button>'
 	promo.classList.add("promo");
 	var videoWrap = document.querySelector(".dplayer-video-wrap");
 	videoWrap.appendChild(promo);
