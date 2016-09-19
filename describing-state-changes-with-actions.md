@@ -122,10 +122,10 @@ const
 - [不可变对象（百度百科）](http://baike.baidu.com/link?url=Fgbv8gIdOK0atD6b4aDiB9EbgKxKcVzQroLuzhj9WXoW2m8T5rQdAkgMZZkzVOpd0HeTvl4dMYv7pz8YMQ8VgDxYi5Gy4iixTjmTC14I47sm7c0u4wJK6EnRQGKVBZAH)
 - [不可变对象（维基百科）](https://zh.wikipedia.org/wiki/%E4%B8%8D%E5%8F%AF%E8%AE%8A%E7%89%A9%E4%BB%B6)
 
-[Lesson-2_Counter-screenshot]: ../screenshots/Lesson-2_Counter-screenshot.png
+[Lesson-2_Counter-screenshot]: ./screenshots/Lesson-2_Counter-screenshot.png
 
-[Lesson-2_Multiple-counters-screenshot]: ../screenshots/Lesson-2_Multiple-counters-screenshot.png
+[Lesson-2_Multiple-counters-screenshot]: ./screenshots/Lesson-2_Multiple-counters-screenshot.png
 
-[Lesson-2_Todo-App-screenshot]: ../screenshots/Lesson-2_Todo-App-screenshot.png
+[Lesson-2_Todo-App-screenshot]: ./screenshots/Lesson-2_Todo-App-screenshot.png
 
 <style>{% include "./css/dplayer.css" %}</style>

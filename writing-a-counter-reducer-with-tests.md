@@ -214,9 +214,9 @@ const counter = (state = 0, action) => {
 - [测试驱动开发（百度百科）](http://baike.baidu.com/link?url=Ai8CBWcCR8YmyWjpa85SgclgraFZLPTPUg-Jte__LME0-ZyPVRO1KovKe3EK5287D41zvAqVI0bx-onKSnJaqDa5rduk1dVXqVthXloh0xK)
 - [测试驱动开发（维基百科）](https://zh.wikipedia.org/wiki/%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91)
 
-[Lesson-5_Tests-failed-screenshot]: ../screenshots/Lesson-5_Tests-failed-screenshot.png
-[Lesson-5_Tests-passed-screenshot]: ../screenshots/Lesson-5_Tests-passed-screenshot.png
-[Lesson-5_Tests-failed-again-screenshot]: ../screenshots/Lesson-5_Tests-failed-again-screenshot.png
-[Lesson-5_Tests-failed-one-more-time-screenshot]: ../screenshots/Lesson-5_Tests-failed-one-more-time-screenshot.png
+[Lesson-5_Tests-failed-screenshot]: ./screenshots/Lesson-5_Tests-failed-screenshot.png
+[Lesson-5_Tests-passed-screenshot]: ./screenshots/Lesson-5_Tests-passed-screenshot.png
+[Lesson-5_Tests-failed-again-screenshot]: ./screenshots/Lesson-5_Tests-failed-again-screenshot.png
+[Lesson-5_Tests-failed-one-more-time-screenshot]: ./screenshots/Lesson-5_Tests-failed-one-more-time-screenshot.png
 
 <style>{% include "./css/dplayer.css" %}</style>

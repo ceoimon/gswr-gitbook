@@ -110,5 +110,5 @@ const render = () => {
 
 如果为 `store` 提供一个额外的 `unsubscribe` 函数：你需要合适地标记订阅者，导致逻辑变得复杂。
 
-[Lesson-8_Counter-screenshot-1]: ../screenshots/Lesson-8_Counter-screenshot-1.png
-[Lesson-8_Counter-screenshot-2]: ../screenshots/Lesson-8_Counter-screenshot-2.png
+[Lesson-8_Counter-screenshot-1]: ./screenshots/Lesson-8_Counter-screenshot-1.png
+[Lesson-8_Counter-screenshot-2]: ./screenshots/Lesson-8_Counter-screenshot-2.png

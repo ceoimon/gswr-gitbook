@@ -276,7 +276,7 @@ const render = () => {
   - 这样做会使组件和状态耦合，组件本身不应依赖 `store`.
   - `Counter` 是一个展示型组件，后面我们会继续深入讨论。
 
-[Lesson-9_Tests-passed-screenshot]: ../screenshots/Lesson-9_Tests-passed-screenshot.png
-[Lesson-9_Screenshot-of-Array-protected-by-deep-freeze]: ../screenshots/Lesson-9_Screenshot-of-Array-protected-by-deep-freeze.png
+[Lesson-9_Tests-passed-screenshot]: ./screenshots/Lesson-9_Tests-passed-screenshot.png
+[Lesson-9_Screenshot-of-Array-protected-by-deep-freeze]: ./screenshots/Lesson-9_Screenshot-of-Array-protected-by-deep-freeze.png
 
 <style>{% include "./css/dplayer.css" %}</style>

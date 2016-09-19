@@ -166,7 +166,7 @@ class TodoApp extends Component {
 
 我们会发现其实整体的结构跟计数器的非常相似。每一部分的分工十分明确。比如“添加 Todo ” 按钮并不知道 todo 具体是怎么添加的，这就是 Redux 带来的好处。
 
-[Lesson-17_Todo-App-demo-screenshot]: ../screenshots/Lesson-17_Todo-App-demo-screenshot.png
-[Lesson-17_Todo-App-demo-screenshot-1]: ../screenshots/Lesson-17_Todo-App-demo-screenshot-1.png
+[Lesson-17_Todo-App-demo-screenshot]: ./screenshots/Lesson-17_Todo-App-demo-screenshot.png
+[Lesson-17_Todo-App-demo-screenshot-1]: ./screenshots/Lesson-17_Todo-App-demo-screenshot-1.png
 
 <style>{% include "./css/dplayer.css" %}</style>

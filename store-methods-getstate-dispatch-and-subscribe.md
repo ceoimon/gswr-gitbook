@@ -142,6 +142,6 @@ const counters = (state = [], action) => {
   - 不能修改原来的状态 (纯函数)
 注意我们要使用非常多 ES6 语法的 "`...`"(展开运算符) 来确保 reducer 的纯函数特性，下面的课程我们还会深入了解。
 
-[Lesson-6_Counter-screenshot]: ../screenshots/Lesson-6_Counter-screenshot.png
+[Lesson-6_Counter-screenshot]: ./screenshots/Lesson-6_Counter-screenshot.png
 
 <style>{% include "./css/dplayer.css" %}</style>

@@ -97,10 +97,10 @@ const todoAppState = {
 - [为什么要有 Redux](http://cn.redux.js.org/docs/introduction/Motivation.html)
 - [Redux 三大原则](http://cn.redux.js.org/docs/introduction/ThreePrinciples.html)
 
-[Lesson-1_Counter-screenshot]: screenshots/Lesson-1_Counter-screenshot.png
+[Lesson-1_Counter-screenshot]: ./screenshots/Lesson-1_Counter-screenshot.png
 
-[Lesson-1_Multiple-counters-screenshot]: screenshots/Lesson-1_Multiple-counters-screenshot.png
+[Lesson-1_Multiple-counters-screenshot]: ./screenshots/Lesson-1_Multiple-counters-screenshot.png
 
-[Lesson-1_Todo-App-screenshot]: screenshots/Lesson-1_Todo-App-screenshot.png
+[Lesson-1_Todo-App-screenshot]: ./screenshots/Lesson-1_Todo-App-screenshot.png
 
 <style>{% include "./css/dplayer.css" %}</style>

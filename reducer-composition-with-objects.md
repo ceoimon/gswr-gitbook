@@ -115,6 +115,6 @@ console.log('--------------');
 
 - 把 `visibilityFilter` 包含到 `todos` 里面会有什么问题？
 
-[Lesson-14_visibilityFilter-test-screenshot]: ../screenshots/Lesson-14_visibilityFilter-test-screenshot.png
+[Lesson-14_visibilityFilter-test-screenshot]: ./screenshots/Lesson-14_visibilityFilter-test-screenshot.png
 
 <style>{% include "./css/dplayer.css" %}</style>

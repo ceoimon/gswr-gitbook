@@ -127,10 +127,10 @@ function counter(state, action) {
 
 - [Redux 三大原则](http://cn.redux.js.org/docs/introduction/ThreePrinciples.html)
 
-[Lesson-4_Counter-screenshot]: ../screenshots/Lesson-4_Counter-screenshot.png
+[Lesson-4_Counter-screenshot]: ./screenshots/Lesson-4_Counter-screenshot.png
 
-[Lesson-4_Multiple-counters-screenshot]: ../screenshots/Lesson-4_Multiple-counters-screenshot.png
+[Lesson-4_Multiple-counters-screenshot]: ./screenshots/Lesson-4_Multiple-counters-screenshot.png
 
-[Lesson-4_Change-Todo-App-Visibility-Filter-screenshot]: ../screenshots/Lesson-4_Change-Todo-App-Visibility-Filter-screenshot.png
+[Lesson-4_Change-Todo-App-Visibility-Filter-screenshot]: ./screenshots/Lesson-4_Change-Todo-App-Visibility-Filter-screenshot.png
 
 <style>{% include "./css/dplayer.css" %}</style>

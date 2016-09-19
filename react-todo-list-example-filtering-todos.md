@@ -208,7 +208,7 @@ const FilterLink = ({
 
 接下来几节我们将讨论一些在使用 Redux 中常见的问题和优雅的解决方法。
 
-[Lesson-19_Todo-App-demo-screenshot]: ../screenshots/Lesson-19_Todo-App-demo-screenshot.png
-[Lesson-19_Todo-App-demo-screenshot-1]: ../screenshots/Lesson-19_Todo-App-demo-screenshot-1.png
+[Lesson-19_Todo-App-demo-screenshot]: ./screenshots/Lesson-19_Todo-App-demo-screenshot.png
+[Lesson-19_Todo-App-demo-screenshot-1]: ./screenshots/Lesson-19_Todo-App-demo-screenshot-1.png
 
 <style>{% include "./css/dplayer.css" %}</style>
